@@ -1,0 +1,14 @@
+<?php // $file = /home/storage/f/68/ac/locutora1/public_html/plugins/system/yooessentials/modules/icon/collections/boxicons/collection.json
+
+return [
+  'name' => 'boxicons', 
+  'title' => 'Boxicons', 
+  'icon' => $filter->apply('url', '~yooessentials_url/modules/icon/collections/boxicons/icon.svg', $file), 
+  'package' => 'http://static.zoolanders.com/icons/boxicons_2.0.7.zip', 
+  'description' => 'High-Quality Web Icons Set.', 
+  'version' => '2.0.7', 
+  'release' => 'October 23, 2020', 
+  'license' => 'MIT', 
+  'url' => 'https://boxicons.com', 
+  'icons' => 1500
+];

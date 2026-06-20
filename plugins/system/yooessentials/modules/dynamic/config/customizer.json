@@ -1,0 +1,110 @@
+{
+    "sections": {
+        "yooessentials": {
+            "items": {
+                "yooessentials-source-queries": "Source Queries"
+            }
+        }
+    },
+    "panels": {
+        "yooessentials-source-queries": {
+            "priority": -5,
+            "title": "Queries",
+            "width": 350
+        },
+        "yooessentials-source-query-prop": {
+            "fields": {
+                "_source": {
+                    "label": "Source",
+                    "type": "yooessentials-source-select",
+                    "description": "Select a content source for which to make a query.",
+                    "omitgroups": [
+                        "",
+                        "Page",
+                        "Global"
+                    ]
+                },
+                "_sourceArgs": {
+                    "type": "source-query-args"
+                },
+                "_sourceField": {
+                    "label": "Multiple Items Source",
+                    "type": "source-field-select",
+                    "description": "Optionally select a related source which has multiple items to map its fields.",
+                    "show": "this.Source.getSourceFieldOptions(this.node)"
+                },
+                "_sourceFieldArgs": {
+                    "type": "source-field-args"
+                },
+                "_sourceFieldDirectives": {
+                    "type": "source-field-directives"
+                }
+            }
+        },
+        "yooessentials-source-query-global": {
+            "title": "Source Query",
+            "fields": {
+                "_source": {
+                    "label": "Dynamic Content",
+                    "type": "yooessentials-source-select",
+                    "description": "The content source for which to make a query.",
+                    "enable": false,
+                    "omitgroups": [
+                        "",
+                        "Page"
+                    ]
+                },
+                "name": {
+                    "label": "Name",
+                    "description": "A name to identify this query.",
+                    "attrs": {
+                        "autofocus": true
+                    }
+                },
+                "_sourceArgs": {
+                    "type": "source-query-args"
+                },
+                "_sourceField": {
+                    "label": "Multiple Items Source",
+                    "type": "source-field-select",
+                    "description": "By default, fields of related sources with single items are available for mapping. Select a related source which has multiple items to map its fields.",
+                    "show": "this.Source.getSourceFieldOptions(this.node)"
+                },
+                "_sourceFieldArgs": {
+                    "type": "source-field-args"
+                },
+                "_sourceFieldDirectives": {
+                    "type": "source-field-directives"
+                }
+            }
+        }
+    },
+    "sources": {
+        "implode": {
+            "join": {
+                "label": "Join",
+                "type": "select",
+                "default": "after",
+                "description": "Join multiple values after or before filters have been applied. If no join is applied the raw value is returned which must be properly handled.",
+                "options": {
+                    "Do not join": "no",
+                    "After Filters": "after",
+                    "Before Filters": "before"
+                }
+            },
+            "glue": {
+                "label": "Glue",
+                "type": "data-list",
+                "default": ", ",
+                "description": "Set a glue string with which to joing the multiple values.",
+                "options": {
+                    "Space": " ",
+                    "Comma": ", ",
+                    "Pipe": " | ",
+                    "Hyphen": " - "
+                },
+                "enable": "implode.join !== 'no'"
+            }
+        }
+    }
+}

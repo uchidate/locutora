@@ -1,0 +1,18 @@
+INSERT IGNORE INTO `#__rsform_config` (`SettingName`, `SettingValue`) VALUES
+('mailer.type', 'default'),
+('mailer.sendmailpath', '/usr/sbin/sendmail'),
+('mailer.smtpauth', '1'),
+('mailer.smtpsecurity', 'none'),
+('mailer.smtpport', '25'),
+('mailer.smtpusername', ''),
+('mailer.smtppassword', ''),
+('mailer.smtphost', ''),
+('mailer.enabledkim', '0'),
+('mailer.dkimdomain', 'localhost'),
+('mailer.dkimselector', ''),
+('mailer.dkimpassphrase', ''),
+('mailer.dkimidentity', ''),
+('mailer.dkimprivatekey', ''),
+('mailer.dkimpublickey', ''),
+('mailer.enableheaders', '0'),
+('mailer.emailheaders', '');

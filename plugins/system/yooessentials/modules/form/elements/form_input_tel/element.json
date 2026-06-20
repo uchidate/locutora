@@ -1,0 +1,71 @@
+{
+    "@import": "./element.php",
+    "name": "yooessentials_form_input_tel",
+    "title": "Tel",
+    "group": "Form Essentials",
+    "icon": "${url:~yooessentials_url/modules/form/elements/form_input/images/icon.svg}",
+    "iconSmall": "${url:~yooessentials_url/modules/form/elements/form_input/images/iconSmall.svg}",
+    "width": 500,
+    "submittable": true,
+    "defaults": {
+        "control_id_inherit": true
+    },
+    "fields": {
+        "control_value": {
+            "label": "${yooessentials.form.fields.control_value.label}",
+            "description": "${yooessentials.form.fields.control_value.description}",
+            "source": "${yooessentials.form.fields.control_value.source}",
+            "attrs": {
+                "type": "tel"
+            }
+        },
+        "control_name": "${yooessentials.form.fields.control_name}",
+        "control_label": "${yooessentials.form.fields.control_label}",
+        "control_id": "${yooessentials.form.fields.control_id}",
+        "control_id_inherit": "${yooessentials.form.fields.control_id_inherit}",
+        "control_placeholder": "${yooessentials.form.fields.control_placeholder}",
+        "control_autofocus": "${yooessentials.form.fields.control_autofocus}",
+        "control_required": "${yooessentials.form.fields.control_required}",
+        "control_readonly": "${yooessentials.form.fields.control_readonly}",
+        "control_icon": "${yooessentials.form.fields.control_icon}",
+        "control_icon_align": "${yooessentials.form.fields.control_icon_align}",
+        "control_minlength": "${yooessentials.form.fields.control_minlength}",
+        "control_maxlength": "${yooessentials.form.fields.control_maxlength}",
+        "control_pattern": "${yooessentials.form.fields.control_pattern}",
+        "control_error_message": "${yooessentials.form.fields.control_error_message}",
+        "source": "${builder.source}"
+    },
+    "fieldset": {
+        "default": {
+            "type": "tabs",
+            "fields": [
+                {
+                    "title": "Field",
+                    "fields": [
+                        "control_name",
+                        "control_id_inherit",
+                        "control_autofocus",
+                        "control_id",
+                        "control_label",
+                        "control_icon",
+                        "control_icon_align",
+                        "control_placeholder",
+                        "control_value",
+                        "control_readonly"
+                    ]
+                },
+                {
+                    "title": "Validation",
+                    "fields": [
+                        "control_required",
+                        "control_minlength",
+                        "control_maxlength",
+                        "control_pattern",
+                        "control_error_message"
+                    ]
+                },
+                "${builder.advanced}"
+            ]
+        }
+    }
+}

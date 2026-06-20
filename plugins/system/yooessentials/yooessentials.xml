@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="system" method="upgrade">
+    <name>System - Essentials YOOtheme Pro</name>
+    <description>Essential Addons for YOOtheme Pro by ZOOlanders</description>
+    <version>1.9.3</version>
+    <creationDate>January 2023</creationDate>
+    <author>ZOOlanders</author>
+    <authorUrl>https://www.zoolanders.com</authorUrl>
+    <copyright>Copyright (C) Joolanders, SL</copyright>
+    <license>http://www.gnu.org/licenses/gpl.html GNU/GPL</license>
+    <element>yooessentials</element>
+    <scriptfile>install.php</scriptfile>
+    <files>
+        <folder>modules</folder>
+        <filename>CHANGELOG.md</filename>
+        <filename>checksums.txt</filename>
+        <filename plugin="yooessentials">yooessentials.php</filename>
+    </files>
+    <updateservers>
+        <server type="extension" priority="1" name="Essentials YOOtheme Pro">http://static.zoolanders.com/updates/yooessentials-joomla-premium.xml</server>
+    </updateservers>
+</extension>

@@ -1,0 +1,83 @@
+<?php // $file = /home/storage/f/68/ac/locutora1/public_html/plugins/system/yooessentials/modules/core/config/customizer.json
+
+return [
+  'yooessentials' => [
+    'version' => $config->get('yooessentials.version')
+  ], 
+  'panels' => [
+    'yooessentials-about' => [
+      'priority' => 100, 
+      'title' => 'About'
+    ], 
+    'yooessentials-advanced' => [
+      'priority' => 90, 
+      'title' => 'Advanced', 
+      'width' => 400, 
+      'fields' => [
+        'dynamic.state' => [
+          'label' => 'Addons', 
+          'type' => 'yooessentials-checkbox', 
+          'text' => 'Dynamic - Premium Addon', 
+          'description' => 'Advanced Dynamic Content Workflow <a href="https://www.zoolanders.com/essentials-for-yootheme-pro/dynamic" target="_blank" class="uk-icon-link" uk-icon="link"></a>', 
+          'default' => true
+        ], 
+        'form.state' => [
+          'type' => 'yooessentials-checkbox', 
+          'text' => 'Forms - Premium Addon', 
+          'description' => 'Advanced Form Builder <a href="https://www.zoolanders.com/essentials-for-yootheme-pro/forms" target="_blank" class="uk-icon-link" uk-icon="link"></a>', 
+          'default' => true, 
+          'reliesOn' => 'dynamic.state', 
+          'enable' => 'dynamic.state'
+        ], 
+        'access.state' => [
+          'type' => 'yooessentials-checkbox', 
+          'text' => 'Access - Premium Addon', 
+          'description' => 'Elements Conditional Rendering <a href="https://www.zoolanders.com/essentials-for-yootheme-pro/access" target="_blank" class="uk-icon-link" uk-icon="link"></a>', 
+          'default' => true, 
+          'reliesOn' => 'dynamic.state', 
+          'enable' => 'dynamic.state'
+        ], 
+        'source.state' => [
+          'type' => 'yooessentials-checkbox', 
+          'text' => 'Sources - Premium Addon', 
+          'description' => 'Next Level Sources <a href="https://www.zoolanders.com/essentials-for-yootheme-pro/sources" target="_blank" class="uk-icon-link" uk-icon="link"></a>', 
+          'default' => true
+        ], 
+        'icon.state' => [
+          'type' => 'yooessentials-checkbox', 
+          'text' => 'Icons - Premium Addon', 
+          'description' => 'Icon Collections <a href="https://www.zoolanders.com/essentials-for-yootheme-pro/icons" target="_blank" class="uk-icon-link" uk-icon="link"></a>', 
+          'default' => true
+        ], 
+        'layout.state' => [
+          'type' => 'yooessentials-checkbox', 
+          'text' => 'Layouts - Premium Addon', 
+          'description' => 'Shared Layout Libraries <a href="https://www.zoolanders.com/essentials-for-yootheme-pro/layouts" target="_blank" class="uk-icon-link" uk-icon="link"></a>', 
+          'default' => true
+        ], 
+        'element.state' => [
+          'type' => 'yooessentials-checkbox', 
+          'text' => 'Elements - Free Addon', 
+          'default' => true, 
+          'description' => 'Builder Elements <a href="https://www.zoolanders.com/essentials-for-yootheme-pro/elements" target="_blank" class="uk-icon-link" uk-icon="link"></a><br><br>Toggle the loading of Essential Addons, requires browser reloading. Please consider that only <b>Elements Addon</B> is included in the Free edition.'
+        ], 
+        'core.geoipdb' => [
+          'label' => 'GeoIp Database Source', 
+          'attrs' => [
+            'placeholder' => '~theme/GeoLite2-City.mmdb'
+          ]
+        ]
+      ]
+    ]
+  ], 
+  'sections' => [
+    'yooessentials' => [
+      'title' => 'Essentials', 
+      'priority' => 90, 
+      'items' => [
+        'yooessentials-advanced' => 'Advanced', 
+        'yooessentials-about' => 'About'
+      ]
+    ]
+  ]
+];

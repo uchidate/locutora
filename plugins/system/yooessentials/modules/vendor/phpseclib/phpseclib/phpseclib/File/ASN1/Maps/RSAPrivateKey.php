@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * RSAPrivateKey
+ *
+ * PHP version 5
+ *
+ * @author    Jim Wigginton <terrafrost@php.net>
+ * @copyright 2016 Jim Wigginton
+ * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link      http://phpseclib.sourceforge.net
+ */
+namespace ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1\Maps;
+
+use ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1;
+/**
+ * RSAPrivateKey
+ *
+ * @author  Jim Wigginton <terrafrost@php.net>
+ */
+abstract class RSAPrivateKey
+{
+    // version must be multi if otherPrimeInfos present
+    const MAP = ['type' => \ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1::TYPE_SEQUENCE, 'children' => [
+        'version' => ['type' => \ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1::TYPE_INTEGER, 'mapping' => ['two-prime', 'multi']],
+        'modulus' => ['type' => \ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1::TYPE_INTEGER],
+        // n
+        'publicExponent' => ['type' => \ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1::TYPE_INTEGER],
+        // e
+        'privateExponent' => ['type' => \ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1::TYPE_INTEGER],
+        // d
+        'prime1' => ['type' => \ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1::TYPE_INTEGER],
+        // p
+        'prime2' => ['type' => \ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1::TYPE_INTEGER],
+        // q
+        'exponent1' => ['type' => \ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1::TYPE_INTEGER],
+        // d mod (p-1)
+        'exponent2' => ['type' => \ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1::TYPE_INTEGER],
+        // d mod (q-1)
+        'coefficient' => ['type' => \ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1::TYPE_INTEGER],
+        // (inverse of q) mod p
+        'otherPrimeInfos' => \ZOOlanders\YOOessentials\Vendor\phpseclib3\File\ASN1\Maps\OtherPrimeInfos::MAP + ['optional' => \true],
+    ]];
+}

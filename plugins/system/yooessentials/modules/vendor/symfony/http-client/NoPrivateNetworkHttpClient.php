@@ -1,0 +1,101 @@
+<?php
+
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+namespace ZOOlanders\YOOessentials\Vendor\Symfony\Component\HttpClient;
+
+use ZOOlanders\YOOessentials\Vendor\Psr\Log\LoggerAwareInterface;
+use ZOOlanders\YOOessentials\Vendor\Psr\Log\LoggerInterface;
+use ZOOlanders\YOOessentials\Vendor\Symfony\Component\HttpClient\Exception\InvalidArgumentException;
+use ZOOlanders\YOOessentials\Vendor\Symfony\Component\HttpClient\Exception\TransportException;
+use ZOOlanders\YOOessentials\Vendor\Symfony\Component\HttpFoundation\IpUtils;
+use ZOOlanders\YOOessentials\Vendor\Symfony\Contracts\HttpClient\HttpClientInterface;
+use ZOOlanders\YOOessentials\Vendor\Symfony\Contracts\HttpClient\ResponseInterface;
+use ZOOlanders\YOOessentials\Vendor\Symfony\Contracts\HttpClient\ResponseStreamInterface;
+use ZOOlanders\YOOessentials\Vendor\Symfony\Contracts\Service\ResetInterface;
+/**
+ * Decorator that blocks requests to private networks by default.
+ *
+ * @author Hallison Boaventura <hallisonboaventura@gmail.com>
+ */
+final class NoPrivateNetworkHttpClient implements \ZOOlanders\YOOessentials\Vendor\Symfony\Contracts\HttpClient\HttpClientInterface, \ZOOlanders\YOOessentials\Vendor\Psr\Log\LoggerAwareInterface, \ZOOlanders\YOOessentials\Vendor\Symfony\Contracts\Service\ResetInterface
+{
+    use HttpClientTrait;
+    private const PRIVATE_SUBNETS = ['127.0.0.0/8', '10.0.0.0/8', '192.168.0.0/16', '172.16.0.0/12', '169.254.0.0/16', '0.0.0.0/8', '240.0.0.0/4', '::1/128', 'fc00::/7', 'fe80::/10', '::ffff:0:0/96', '::/128'];
+    private $client;
+    private $subnets;
+    /**
+     * @param string|array|null $subnets String or array of subnets using CIDR notation that will be used by IpUtils.
+     *                                   If null is passed, the standard private subnets will be used.
+     */
+    public function __construct(\ZOOlanders\YOOessentials\Vendor\Symfony\Contracts\HttpClient\HttpClientInterface $client, $subnets = null)
+    {
+        if (!(\is_array($subnets) || \is_string($subnets) || null === $subnets)) {
+            throw new \TypeError(\sprintf('Argument 2 passed to "%s()" must be of the type array, string or null. "%s" given.', __METHOD__, \get_debug_type($subnets)));
+        }
+        if (!\class_exists(\ZOOlanders\YOOessentials\Vendor\Symfony\Component\HttpFoundation\IpUtils::class)) {
+            throw new \LogicException(\sprintf('You cannot use "%s" if the HttpFoundation component is not installed. Try running "composer require symfony/http-foundation".', __CLASS__));
+        }
+        $this->client = $client;
+        $this->subnets = $subnets;
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function request(string $method, string $url, array $options = []) : \ZOOlanders\YOOessentials\Vendor\Symfony\Contracts\HttpClient\ResponseInterface
+    {
+        $onProgress = $options['on_progress'] ?? null;
+        if (null !== $onProgress && !\is_callable($onProgress)) {
+            throw new \ZOOlanders\YOOessentials\Vendor\Symfony\Component\HttpClient\Exception\InvalidArgumentException(\sprintf('Option "on_progress" must be callable, "%s" given.', \get_debug_type($onProgress)));
+        }
+        $subnets = $this->subnets;
+        $lastPrimaryIp = '';
+        $options['on_progress'] = function (int $dlNow, int $dlSize, array $info) use($onProgress, $subnets, &$lastPrimaryIp) : void {
+            if ($info['primary_ip'] !== $lastPrimaryIp) {
+                if ($info['primary_ip'] && \ZOOlanders\YOOessentials\Vendor\Symfony\Component\HttpFoundation\IpUtils::checkIp($info['primary_ip'], $subnets ?? self::PRIVATE_SUBNETS)) {
+                    throw new \ZOOlanders\YOOessentials\Vendor\Symfony\Component\HttpClient\Exception\TransportException(\sprintf('IP "%s" is blocked for "%s".', $info['primary_ip'], $info['url']));
+                }
+                $lastPrimaryIp = $info['primary_ip'];
+            }
+            null !== $onProgress && $onProgress($dlNow, $dlSize, $info);
+        };
+        return $this->client->request($method, $url, $options);
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function stream($responses, float $timeout = null) : \ZOOlanders\YOOessentials\Vendor\Symfony\Contracts\HttpClient\ResponseStreamInterface
+    {
+        return $this->client->stream($responses, $timeout);
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function setLogger(\ZOOlanders\YOOessentials\Vendor\Psr\Log\LoggerInterface $logger) : void
+    {
+        if ($this->client instanceof \ZOOlanders\YOOessentials\Vendor\Psr\Log\LoggerAwareInterface) {
+            $this->client->setLogger($logger);
+        }
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function withOptions(array $options) : self
+    {
+        $clone = clone $this;
+        $clone->client = $this->client->withOptions($options);
+        return $clone;
+    }
+    public function reset()
+    {
+        if ($this->client instanceof \ZOOlanders\YOOessentials\Vendor\Symfony\Contracts\Service\ResetInterface) {
+            $this->client->reset();
+        }
+    }
+}

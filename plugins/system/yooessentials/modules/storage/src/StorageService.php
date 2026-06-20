@@ -1,0 +1,71 @@
+<?php
+/**
+ * @package   Essentials YOOtheme Pro 1.9.3 build 0125.1555
+ * @author    ZOOlanders https://www.zoolanders.com
+ * @copyright Copyright (C) Joolanders, SL
+ * @license   http://www.gnu.org/licenses/gpl.html GNU/GPL
+ */
+
+namespace ZOOlanders\YOOessentials\Storage;
+
+class StorageService
+{
+    public const STORAGES_CONFIG_KEY = 'storages';
+
+    /** @var array */
+    protected $configs = [];
+
+    /** @var StorageAdapterManager */
+    protected $manager;
+
+    public function __construct(StorageAdapterManager $manager)
+    {
+        $this->manager = $manager;
+    }
+
+    public function setConfigs(array $configs): self
+    {
+        $this->configs = $configs;
+
+        return $this;
+    }
+
+    /**
+     * @return Storage[]
+     */
+    public function storages(): array
+    {
+        return array_map(function (array $config) {
+            $adapter = $this->manager->adapter($config['adapter'] ?? '');
+
+            return $adapter->storage($config);
+        }, $this->configs());
+    }
+
+    public function storage(string $id): ?Storage
+    {
+        $storage = array_filter($this->storages(), function (Storage $storage) use ($id) {
+            return $storage->id() === $id;
+        });
+
+        if (empty($storage)) {
+            return null;
+        }
+
+        return array_shift($storage);
+    }
+
+    /**
+     * @return array[]|array
+     */
+    public function configs(?string $name = null): array
+    {
+        if (!$name) {
+            return $this->configs;
+        }
+
+        return array_filter($this->configs, function (array $storage) use ($name) {
+            return ($storage['adapter'] ?? '') === $name;
+        });
+    }
+}

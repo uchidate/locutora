@@ -1,0 +1,37 @@
+{
+    "panels": {
+        "yooessentials-sources": {
+            "priority": -10,
+            "title": "Sources",
+            "width": 350
+        }
+    },
+    "sections": {
+        "yooessentials": {
+            "items": {
+                "yooessentials-sources": "Sources"
+            }
+        }
+    },
+    "sources": {
+        "filters": {
+            "time": {
+                "label": "Time Format",
+                "description": "Select a predefined time format or enter a custom one.",
+                "type": "data-list",
+                "default": "",
+                "options": {
+                    "15:00 (G:i)": "G:i",
+                    "3:00 pm (g:i A)": "g:i a"
+                },
+                "attrs": {
+                    "placeholder": "Default"
+                }
+            },
+            "datemodify": {
+                "label": "Date Modify",
+                "description": "Alter the date by incrementing or decrementing in a human readable format. eg -1 year."
+            }
+        }
+    }
+}

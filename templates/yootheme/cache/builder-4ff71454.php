@@ -1,0 +1,223 @@
+<?php // $file = /home/storage/f/68/ac/locutora1/public_html/plugins/system/yooessentials/modules/form/config/builder.json
+
+return [
+  '@import' => [$filter->apply('path', '../../form-actions/config/builder.json', $file)], 
+  'control_name' => [
+    'label' => 'Control Name', 
+    'description' => 'The control name that identifies the field and it submitted data. It\'s required and must be unique for the current Form Area.', 
+    'type' => 'yooessentials-form-control'
+  ], 
+  'control_id' => [
+    'label' => 'ID Attribute', 
+    'description' => 'An unique identifier for the field.', 
+    'source' => true, 
+    'show' => '!control_id_inherit'
+  ], 
+  'control_id_inherit' => [
+    'type' => 'checkbox', 
+    'text' => 'Sync ID with control'
+  ], 
+  'control_label' => [
+    'label' => 'Label', 
+    'description' => 'The field label.', 
+    'source' => true
+  ], 
+  'control_value' => [
+    'label' => 'Value', 
+    'description' => 'A predefined value.', 
+    'source' => true
+  ], 
+  'control_readonly' => [
+    'text' => 'Set as read only', 
+    'type' => 'checkbox'
+  ], 
+  'control_autofocus' => [
+    'text' => 'Autofocus on page load', 
+    'type' => 'checkbox', 
+    'enable' => '!control_readonly'
+  ], 
+  'control_placeholder' => [
+    'label' => 'Placeholder', 
+    'description' => 'An optional text to be shown when the field has no value set.', 
+    'source' => true
+  ], 
+  'control_size' => [
+    'label' => 'Size', 
+    'description' => 'The field size.', 
+    'type' => 'select', 
+    'options' => [
+      'Default' => '', 
+      'Large' => 'large', 
+      'Small' => 'small'
+    ]
+  ], 
+  'control_width' => [
+    'label' => 'Width', 
+    'description' => 'The field width size.', 
+    'type' => 'select', 
+    'options' => [
+      'Default' => '', 
+      'Large' => 'large', 
+      'Medium' => 'medium', 
+      'Small' => 'small', 
+      'XSmall' => 'xsmall'
+    ]
+  ], 
+  'control_options' => [
+    'label' => 'Options', 
+    'type' => 'content-items', 
+    'title' => 'text', 
+    'button' => 'Add option', 
+    'item' => 'yooessentials_form_option'
+  ], 
+  'control_icon' => [
+    'label' => 'Icon', 
+    'description' => 'The field icon.', 
+    'type' => 'icon'
+  ], 
+  'control_icon_align' => [
+    'label' => 'Icon Position', 
+    'description' => 'The field icon position.', 
+    'type' => 'select', 
+    'options' => [
+      'Left' => 'left', 
+      'Right' => 'right'
+    ]
+  ], 
+  'control_required' => [
+    'label' => 'Required', 
+    'text' => 'Value must be set.', 
+    'type' => 'checkbox', 
+    'source' => true
+  ], 
+  'control_min' => [
+    'label' => 'Min', 
+    'description' => 'Value must be greater than or equal to mininum.', 
+    'source' => true, 
+    'attrs' => [
+      'type' => 'number'
+    ]
+  ], 
+  'control_max' => [
+    'label' => 'Max', 
+    'description' => 'Value must be lower than or equal to maximum.', 
+    'source' => true, 
+    'attrs' => [
+      'type' => 'number'
+    ]
+  ], 
+  'control_mincount' => [
+    'label' => 'Min', 
+    'description' => 'Value count must be greater than or equal to mininum.', 
+    'source' => true, 
+    'attrs' => [
+      'min' => 2, 
+      'max' => 99, 
+      'type' => 'number'
+    ]
+  ], 
+  'control_maxcount' => [
+    'label' => 'Max', 
+    'description' => 'Value count must be lower than or equal to maximum.', 
+    'source' => true, 
+    'attrs' => [
+      'min' => 2, 
+      'max' => 99, 
+      'type' => 'number'
+    ]
+  ], 
+  'control_minlength' => [
+    'label' => 'Min Length', 
+    'description' => 'Value length must be greater than or equal to mininum.', 
+    'type' => 'number', 
+    'source' => true, 
+    'attrs' => [
+      'min' => 0
+    ]
+  ], 
+  'control_maxlength' => [
+    'label' => 'Max Length', 
+    'description' => 'Value length must be lower than or equal to maximum.', 
+    'type' => 'number', 
+    'source' => true, 
+    'attrs' => [
+      'min' => 1
+    ]
+  ], 
+  'control_mindate' => [
+    'label' => 'Min', 
+    'description' => 'Date must be greater than or equal to mininum.', 
+    'source' => true, 
+    'attrs' => [
+      'type' => 'date'
+    ]
+  ], 
+  'control_maxdate' => [
+    'label' => 'Max', 
+    'description' => 'Date must be lower than or equal to maximum.', 
+    'source' => true, 
+    'attrs' => [
+      'type' => 'date'
+    ]
+  ], 
+  'control_mintime' => [
+    'label' => 'Min', 
+    'description' => 'Time must be greater than or equal to mininum.', 
+    'attrs' => [
+      'type' => 'time'
+    ]
+  ], 
+  'control_maxtime' => [
+    'label' => 'Max', 
+    'description' => 'Time must be lower than or equal to maximum.', 
+    'attrs' => [
+      'type' => 'time'
+    ]
+  ], 
+  'control_minmonth' => [
+    'label' => 'Min', 
+    'description' => 'Month must greater than or equal to mininum.', 
+    'source' => true, 
+    'attrs' => [
+      'type' => 'month'
+    ]
+  ], 
+  'control_maxmonth' => [
+    'label' => 'Max', 
+    'description' => 'Month must lower than or equal to maximum.', 
+    'source' => true, 
+    'attrs' => [
+      'type' => 'month'
+    ]
+  ], 
+  'control_minweek' => [
+    'label' => 'Min', 
+    'description' => 'Weel must greater than or equal to mininum.', 
+    'attrs' => [
+      'type' => 'week'
+    ]
+  ], 
+  'control_maxweek' => [
+    'label' => 'Max', 
+    'description' => 'Weel must lower than or equal to maximum.', 
+    'attrs' => [
+      'type' => 'week'
+    ]
+  ], 
+  'control_step' => [
+    'label' => 'Step', 
+    'description' => 'Value will be multiple of step.', 
+    'type' => 'number', 
+    'source' => true
+  ], 
+  'control_pattern' => [
+    'label' => 'Pattern', 
+    'description' => 'Value must match the regular expression pattern.', 
+    'source' => true
+  ], 
+  'control_error_message' => [
+    'label' => 'Error Message', 
+    'description' => 'Override the default error message. Use <code>{fieldlabel}</code> as placeholder for the field label.', 
+    'source' => true
+  ]
+];

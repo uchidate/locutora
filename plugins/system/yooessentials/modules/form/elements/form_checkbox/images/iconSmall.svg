@@ -1,0 +1,11 @@
+<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="square" stroke-miterlimit="1.5">
+  <path fill="#444" stroke="#444" stroke-width="2.84" d="M2.133 21.805h5.69v4.294h-5.69z" transform="matrix(.35857 0 0 .47842 1.27104437 4.79638579)"/>
+  <path fill="#444" d="M8.63420572 15.2751577h10.67130466v1.7333342H8.63420572z"/>
+  <path fill="none" stroke="#444" stroke-width="1.78" d="M1.567 12.078h6.454v5.195H1.567z" transform="matrix(.59911 0 0 .74435 .29742621 5.21795267)"/>
+  <path fill="#444" d="M8.63420572 9.06752126h10.67130466v1.7333342H8.63420572z"/>
+  <path fill="none" stroke="#444" stroke-width="1.78" d="M1.567 12.078h6.454v5.195H1.567z" transform="matrix(.59911 0 0 .74435 .29742621 -.98968377)"/>
+  <g>
+    <path fill="#444" d="M8.63420572 3.0011469h10.67130466v1.7333342H8.63420572z"/>
+    <path fill="none" stroke="#444" stroke-width="1.78" d="M1.567 12.078h6.454v5.195H1.567z" transform="matrix(.59911 0 0 .74435 .29742621 -7.05605814)"/>
+  </g>
+</svg>

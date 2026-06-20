@@ -1,0 +1,6 @@
+<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+  <path fill="none" stroke="#444" stroke-width="1.33334" d="M1.333334 2.000001h17.333342v16.000008H1.333334z"/>
+  <path d="M2 4.307V18 4.307z" fill="none" stroke="#444" stroke-width="1.82" transform="matrix(.66667 0 0 .40067 3.0654682 2.83048808)"/>
+  <path d="M2 4.307V18 4.307z" fill="none" stroke="#444" stroke-width="1.27" transform="matrix(.4714 .4714 -.22795 .22795 17.37194202 11.6050058)"/>
+  <path d="M2 4.307V18 4.307z" fill="none" stroke="#444" stroke-width="1.37" transform="matrix(.4714 .4714 -.11481 .11481 17.03920852 13.82034024)"/>
+</svg>

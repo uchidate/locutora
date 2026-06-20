@@ -1,0 +1,203 @@
+/* FORM PLATE */
+.formplate .rsfp-toggler-label {
+	vertical-align : top;
+	position       : relative;
+	top            : 8px;
+	display        : inline-block;
+}
+
+.formplate .rsfp-toggler-label.left {
+	margin-right : 10px;
+}
+
+.formplate .rsfp-toggler-label.right {
+	margin-left : 10px;
+}
+
+.formplate .fp-toggler {
+	position              : relative;
+	display               : inline-block;
+	width                 : 50px;
+	height                : 30px;
+	background-color      : #FFF;
+	border-radius         : 15px;
+	-o-border-radius      : 15px;
+	-ms-border-radius     : 15px;
+	-moz-border-radius    : 15px;
+	-webkit-border-radius : 15px;
+	background-clip       : padding-box;
+	box-shadow            : inset 0 1px 2px rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow    : inset 0 1px 2px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow       : inset 0 1px 2px rgba(0, 0, 0, 0.15);
+	-webkit-transition    : background-color 0.2s ease-out;
+	transition            : background-color 0.2s ease-out;
+}
+
+.formplate .fp-toggler > input {
+	padding : 0;
+	margin  : 0 auto;
+	opacity : 0;
+	display : block;
+	width   : 100%;
+	height  : 100%;
+	filter  : alpha(opacity=0);
+	cursor  : pointer;
+}
+
+.formplate .fp-toggler .handle {
+	display               : block;
+	position              : absolute;
+	top                   : 1px;
+	left                  : 1px;
+	width                 : 28px;
+	height                : 28px;
+	background-color      : #FFF;
+	border-radius         : 50%;
+	-o-border-radius      : 50%;
+	-ms-border-radius     : 50%;
+	-moz-border-radius    : 50%;
+	-webkit-border-radius : 50%;
+	background-clip       : padding-box;
+	box-shadow            : 0 1px 2px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow    : 0 1px 2px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow       : 0 1px 2px rgba(0, 0, 0, 0.1);
+	-webkit-transition    : all 0.2s ease-out;
+	transition            : all 0.2s ease-out;
+}
+
+.formplate .fp-toggler.checked {
+	background-color : #64BD63;
+}
+
+.formplate .fp-toggler.checked .handle {
+	left : 21px;
+}
+
+.no-touch .formplate .fp-toggler:hover {
+	cursor : pointer;
+}
+
+.formplate .fp-checkbox,
+.formplate .fp-radio {
+	display                     : inline-block;
+	position                    : relative;
+	margin-right                : 6px;
+	margin-top                  : 0;
+	margin-bottom               : 2px;
+	width                       : 22px;
+	height                      : 22px;
+	line-height                 : 1.375rem;
+	font-size                   : .625rem;
+	vertical-align              : middle;
+	border                      : 1px solid #1A1A1A;
+	border-radius               : 5px;
+	background-clip             : border-box;
+	-moz-transition-duration    : 0.2s;
+	-webkit-transition-duration : 0.2s;
+	-o-transition-duration      : 0.2s;
+	transition-duration         : 0.2s;
+	color                       : #fff;
+	z-index                     : 0;
+}
+
+.formplate .fp-checkbox:hover,
+.formplate .fp-radio:hover {
+	cursor : pointer;
+}
+
+.formplate .fp-checkbox.checked,
+.formplate .fp-radio.checked {
+	text-align                  : center;
+	font-family                 : "fontello";
+	border                      : 1px solid #4c94ff;
+	background-color            : #4c94ff;
+	-moz-transition-duration    : 0.2s;
+	-webkit-transition-duration : 0.2s;
+	-o-transition-duration      : 0.2s;
+	transition-duration         : 0.2s;
+}
+
+.formplate .fp-checkbox.disabled,
+.formplate .fp-radio.disabled {
+	text-align 					: center;
+	border                      : 1px solid #D1D1D1;
+	background-color            : #D1D1D1;
+}
+
+.formplate .fp-checkbox.disabled + .rsfpa-label,
+.formplate .fp-radio.disabled + .rsfpa-label {
+	color: #939393;
+}
+
+.formplate .fp-checkbox.checked:before,
+.formplate .fp-radio.checked:before {
+	content                     : "\E805";
+	font-size                   : 14px;
+	line-height                 : 20px;
+	-moz-transition-duration    : 0.2s;
+	-webkit-transition-duration : 0.2s;
+	-o-transition-duration      : 0.2s;
+	transition-duration         : 0.2s;
+}
+
+.formplate .fp-checkbox > input,
+.formplate .fp-radio > input {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 99;
+	padding                     : 0;
+	margin                      : 0;
+	display                     : inline-block;
+	width                       : 22px;
+	height                      : 22px;
+	opacity                     : 0;
+	filter                      : alpha(opacity=0);
+	-moz-transition-duration    : 0.2s;
+	-webkit-transition-duration : 0.2s;
+	-o-transition-duration      : 0.2s;
+	transition-duration         : 0.2s;
+}
+
+.formplate .fp-checkbox > input:hover,
+.formplate .fp-radio > input:hover {
+	cursor : pointer;
+}
+
+.formplate .fp-radio {
+	border-radius               : 50%;
+	-o-border-radius            : 50%;
+	-ms-border-radius           : 50%;
+	-moz-border-radius          : 50%;
+	-webkit-border-radius       : 50%;
+	background-clip             : border-box;
+	-moz-transition-duration    : 0.2s;
+	-webkit-transition-duration : 0.2s;
+	-o-transition-duration      : 0.2s;
+	transition-duration         : 0.2s;
+}
+
+.rsfpa-checkbox, .rsfpa-radio {
+	margin-bottom : 10px;
+}
+
+.rsfpa-checkbox label, .rsfpa-radio label {
+	display : inline-block;
+}
+
+.rsfpa-horizontal {
+	display: inline-block;
+}
+
+.rsfpa-checkbox.rsfpa-horizontal,
+.rsfpa-radio.rsfpa-horizontal {
+	margin-right: 10px;
+}
+
+.rsfpa-vertical {
+	float : none;
+}
+
+.formResponsive .formplate .rsfpa-checkbox label.rsfpa-label, .formResponsive .formplate .rsfpa-radio label.rsfpa-label {
+	float: none;
+}

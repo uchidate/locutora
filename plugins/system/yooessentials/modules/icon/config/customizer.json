@@ -1,0 +1,16 @@
+{
+    "panels": {
+        "yooessentials-icon-collections": {
+            "title": "Icon Collections",
+            "width": 350,
+            "priority": 30
+        }
+    },
+    "sections": {
+        "yooessentials": {
+            "items": {
+                "yooessentials-icon-collections": "Icon Collections"
+            }
+        }
+    }
+}

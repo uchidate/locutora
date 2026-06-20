@@ -1,0 +1,46 @@
+<?php // $file = /home/storage/f/68/ac/locutora1/public_html/plugins/system/yooessentials/modules/source-sources/src/Csv/config.json
+
+return [
+  'name' => 'csv', 
+  'title' => 'CSV', 
+  'description' => 'Source based on a locally-stored CSV file.', 
+  'group' => 'Structured Data', 
+  'docs' => 'https://www.zoolanders.com/docs/essentials-for-yootheme-pro/sources/csv', 
+  'icon' => $filter->apply('url', '~yooessentials_url/modules/source-sources/src/Csv/icon.svg', $file), 
+  'endpoints' => [
+    'presave' => 'yooessentials/source/csv'
+  ], 
+  'fields' => [
+    'name' => [
+      'label' => 'Name', 
+      'description' => 'A name to identify this source.', 
+      'attrs' => [
+        'autofocus' => true
+      ]
+    ], 
+    'file' => [
+      'label' => 'File', 
+      'type' => 'yooessentials-file', 
+      'description' => 'A path to a local CSV formated file which will be used as source. Must be UTF-8 encoded.'
+    ], 
+    '_delimeters' => [
+      'description' => 'The delimiter and enclosure characters the CSV file is formated with.', 
+      'type' => 'grid', 
+      'width' => '1-2', 
+      'fields' => [
+        'delimiter' => [
+          'label' => 'Delimiter', 
+          'attrs' => [
+            'placeholder' => ','
+          ]
+        ], 
+        'enclosure' => [
+          'label' => 'Enclosure', 
+          'attrs' => [
+            'placeholder' => '"'
+          ]
+        ]
+      ]
+    ]
+  ]
+];

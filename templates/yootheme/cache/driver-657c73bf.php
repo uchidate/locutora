@@ -1,0 +1,65 @@
+<?php // $file = /home/storage/f/68/ac/locutora1/public_html/plugins/system/yooessentials/modules/auth-drivers/src/Vimeo/driver.json
+
+return [
+  'type' => 'oauth', 
+  'name' => 'vimeo', 
+  'title' => 'Vimeo', 
+  'description' => 'A Vimeo OAuth connection.', 
+  'documentation' => 'https://developer.vimeo.com/api/authentication', 
+  'services' => ['Personal Account'], 
+  'icon' => $filter->apply('url', '~yooessentials_url/modules/auth-drivers/src/Vimeo/icon.svg', $file), 
+  'endpoints' => [
+    'oauth' => 'https://oauth.zoolanders.com/vimeo', 
+    'presave' => 'yooessentials/auth/vimeo'
+  ], 
+  'scopes' => [
+    'private' => 'Access private member data.', 
+    'purchased' => 'Access a member\'s Vimeo On Demand purchase history.', 
+    'create' => 'Create new Vimeo resources like showcases, groups, channels, and portfolios. To create new videos, you need the upload scope.', 
+    'edit' => 'Edit existing Vimeo resources, including videos.', 
+    'delete' => 'Delete existing Vimeo resources, including videos.', 
+    'interact' => 'Interact with Vimeo resources, such as liking a video or following a member.', 
+    'upload' => 'Upload videos.', 
+    'promo_codes' => 'Add, remove, and review Vimeo On Demand promotions.', 
+    'video_files' => 'Access video files belonging to members with Vimeo Pro membership or higher.'
+  ], 
+  'fields' => [
+    'name' => [
+      'label' => 'Name', 
+      'description' => 'Optional name to identify this auth.'
+    ], 
+    '_scopes' => [
+      'label' => 'Scopes', 
+      'type' => 'yooessentials-oauth-scopes', 
+      'description' => 'The scopes this auth has access to.'
+    ], 
+    '_oauth_title' => [
+      'label' => 'Authentication', 
+      'type' => 'yooessentials-info'
+    ], 
+    '_oauth' => [
+      'type' => 'yooessentials-oauth-grant', 
+      'show' => '!override', 
+      'description' => 'Connect to a Vimeo Account and grant the required scope access to our Auth App, you can revoke those anytime.'
+    ], 
+    'custom' => [
+      'text' => 'Use Custom App', 
+      'type' => 'checkbox'
+    ], 
+    'custom_info' => [
+      'type' => 'yooessentials-info', 
+      'description' => 'Use a Custom App to make the authentication with.', 
+      'show' => 'custom'
+    ], 
+    '_custom' => [
+      'type' => 'fields', 
+      'show' => 'custom', 
+      'fields' => [
+        'accessToken' => [
+          'label' => 'Access Token', 
+          'encrypt' => true
+        ]
+      ]
+    ]
+  ]
+];

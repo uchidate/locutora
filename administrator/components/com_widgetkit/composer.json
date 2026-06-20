@@ -1,0 +1,34 @@
+{
+    "name": "yootheme/widgetkit",
+    "version": "3.1.8",
+    "title": "Widgetkit",
+    "description": "A widget toolkit by YOOtheme.",
+    "copyright": "Copyright (C) YOOtheme GmbH",
+    "license": "GNU General Public License v2 or later",
+    "authors": [
+        {
+            "name": "YOOtheme",
+            "email": "info@yootheme.com",
+            "homepage": "https://yootheme.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:yootheme/framework.git"
+        }
+    ],
+    "require": {
+        "abeautifulsite/simpleimage": "^3.6",
+        "jublonet/codebird-php": "^3.1",
+        "yootheme/framework": "dev-feature/joomla4"
+    },
+    "autoload": {
+        "psr-4": {
+            "YOOtheme\\Widgetkit\\": "src"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "name": "vimeo",
+    "title": "Vimeo",
+    "description": "Source based on Media from Vimeo.",
+    "group": "Social Media",
+    "docs": "https://www.zoolanders.com/docs/essentials-for-yootheme-pro/sources/vimeo",
+    "icon": "${url:~yooessentials_url/modules/source-sources/src/Vimeo/icon.svg}",
+    "endpoints": {
+        "presave": "yooessentials/source/vimeo"
+    },
+    "fields": {
+        "name": {
+            "label": "Name",
+            "description": "A name to identify this source.",
+            "attrs": {
+                "autofocus": true
+            }
+        },
+        "account": {
+            "label": "Account",
+            "type": "yooessentials-connected-auth",
+            "connections": {
+                "vimeo": ["video_files"]
+            },
+            "description": "The Vimeo account from which media to create the source."
+        }
+    }
+}

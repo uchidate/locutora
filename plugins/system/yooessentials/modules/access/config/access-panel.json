@@ -1,0 +1,33 @@
+{
+    "title": "Access",
+    "fields": {
+        "yooessentials_access_conditions": {
+            "label": "Conditions",
+            "type": "yooessentials-conditions",
+            "options": [],
+            "txtEmpty": "Add Condition",
+            "description": "Set the conditions that will determine this element display or action execution, check each condition report for evaluation details.",
+            "adjacent": true
+        },
+        "yooessentials_access_mode": {
+            "label": "Evaluation Mode",
+            "type": "select",
+            "description": "Set as <code>AND</code> to require all conditions to pass, <code>OR</code> for at least one condition, or write a custom evaluation logic.",
+            "show": "yooessentials_access_conditions.length >= 1",
+            "enable": "yooessentials_access_conditions.length > 1",
+            "default": "AND",
+            "options": {
+                "AND": "AND",
+                "OR": "OR",
+                "Custom": "custom"
+            }
+        },
+        "yooessentials_access_mode_query": {
+            "type": "yooessentials-simple-query",
+            "connection": "yooessentials_access_conditions",
+            "description": "Set a custom evaluation query referencing each condition with brackets and it order number, e.g. <code>{1}</code>. Use <code>AND|OR</code> operators to form the evalution logic, e.g. <code>{1} AND {2}</code>. Add parenthesis <code>()</code> for altering the execution order, e.g. <code>({1} AND {2}) OR {3}</code>.",
+            "enable": "yooessentials_access_conditions.length > 1",
+            "show": "yooessentials_access_conditions.length > 1 && yooessentials_access_mode === 'custom'"
+        }
+    }
+}

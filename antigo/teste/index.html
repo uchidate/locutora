@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Teste Site Adriana</title>
+<!--JAVASCRIPT-->
+	<script>
+    function videoBoston() {
+		document.getElementById("boston").style.display = "";
+        document.getElementById("peixonauta").style.display = "none";
+		document.getElementById("locutora").style.display = "none";
+    }
+	
+	function videoPeixonauta() {
+		document.getElementById("peixonauta").style.display = "";
+		document.getElementById("boston").style.display = "none";
+		document.getElementById("locutora").style.display = "none";		
+	}
+	
+	function videoLocutora() {
+		document.getElementById("locutora").style.display = "";
+		document.getElementById("boston").style.display = "none";
+		document.getElementById("peixonauta").style.display = "none";		
+	}
+    </script>
+<!--FINAL JAVASCRIPT-->
+
+<!--CSS-->
+<style>
+	.botao{
+		height:150px;
+		width:100px;
+		background:white;
+		border:none;
+		cursor:pointer;
+		}
+	.image{
+		height:80px;
+		width:80px;
+		}
+</style>
+
+<!--FINAL CSS-->
+
+</head>
+
+<body>
+
+	<h3>Clique nos botões para trocar o vídeo</h3>    
+    
+    <div id="boston">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/hMjupGdDg4k" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <div id="peixonauta" style="display:none;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/yc88wO3U9Ns" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <div id="locutora" style="display:none;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/qejT7jUZ964" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    
+    <button class="botao" onclick="videoBoston()"><img class="image" src="youtube.png"/>Boston Medical Group</button>
+    <button class="botao" onclick="videoPeixonauta()"><img class="image" src="youtube.png"/>Peixonauta<p></p></button>
+    <button class="botao" onclick="videoLocutora()"><img class="image" src="youtube.png"/>Adriana Rosa - Locutora</button>    
+    
+
+</body>
+</html>

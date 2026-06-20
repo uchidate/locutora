@@ -1,0 +1,17 @@
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.type';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.sendmailpath';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.smtpauth';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.smtpsecurity';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.smtpport';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.smtpusername';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.smtppassword';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.smtphost';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.enabledkim';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.dkimdomain';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.dkimselector';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.dkimpassphrase';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.dkimidentity';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.dkimprivatekey';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.dkimpublickey';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.enableheaders';
+DELETE FROM `#__rsform_config` WHERE `SettingName` = 'mailer.emailheaders';

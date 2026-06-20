@@ -1,0 +1,373 @@
+{
+    "@import": "./element.php",
+    "name": "yooessentials_chart",
+    "title": "Chart",
+    "group": "Essentials",
+    "icon": "${url:~yooessentials_url/modules/element/elements/chart/assets/icon.svg}",
+    "iconSmall": "${url:~yooessentials_url/modules/element/elements/chart/assets/iconSmall.svg}",
+    "element": true,
+    "container": true,
+    "width": 500,
+    "defaults": {
+        "chart_type": "line",
+        "chart_deferred": true,
+        "chart_beginAtZero": true,
+        "chart_width": "400px",
+        "chart_height": "400px",
+        "title_display": true,
+        "legend_display": true,
+        "legend_position": "top",
+        "legend_align": "center",
+        "tooltips_enabled": true,
+        "tooltips_displayColors": true,
+        "title_position": "top",
+        "title_fontSize": 12
+    },
+    "placeholder": {
+        "children": [{
+            "type": "yooessentials_chart_dataset",
+            "props": { "dataset_label": "Dataset", "dataset_borderColor": "#4BC0C0"}
+        }]
+    },
+    "templates": {
+        "render": "./templates/template.php",
+        "content": "./templates/content.php"
+    },
+    "fields": {
+        "data": {
+            "label": "Datasets",
+            "type": "content-items",
+            "title": "dataset_label",
+            "button": "Add Dataset",
+            "item": "yooessentials_chart_dataset"
+        },
+        "chart_type": {
+            "label": "Type",
+            "type": "select",
+            "options": {
+                "Line": "line",
+                "Vertical Bar": "bar",
+                "Horizontal Bar": "horizontalBar",
+                "Radar": "radar",
+                "Pie": "pie",
+                "Doughnut": "doughnut",
+                "Polar Area": "polarArea",
+                "Bubble": "bubble",
+                "Scatter": "scatter"
+            }
+        },
+        "title_display": {
+            "label": "Display",
+            "type": "checkbox",
+            "text": "Show title"
+        },
+        "legend_display": {
+            "type": "checkbox",
+            "text": "Show legend"
+        },
+        "legend_reverse": {
+            "label": "Reverse",
+            "text": "Show datasets in reverse order",
+            "type": "checkbox"
+        },
+        "legend_position": {
+            "label": "Position",
+            "type": "select",
+            "options": {
+                "Top": "top",
+                "Bottom": "bottom",
+                "Left": "left",
+                "Right": "right"
+            }
+        },
+        "legend_align": {
+            "label": "Alignment",
+            "type": "select",
+            "options": {
+                "Start": "start",
+                "Center": "center",
+                "End": "end"
+            }
+        },
+        "tooltips_enabled": {
+            "type": "checkbox",
+            "text": "Show tooltips"
+        },
+        "chart_width": {
+            "label": "Width"
+        },
+        "chart_height": {
+            "label": "Height"
+        },
+        "chart_beginAtZero": {
+            "label": "Begin at Zero",
+            "type": "checkbox",
+            "description": "Start value scale at 0 instead of the min value of the dataset.",
+            "text": "Start value scale at 0"
+        },
+        "chart_deferred": {
+            "label": "Deferred",
+            "type": "checkbox",
+            "text": "Defer loading until in Viewport."
+        },
+        "animation_duration": {
+            "label": "Animation Duration"
+        },
+        "animation_easing": {
+            "label": "Animation Easing",
+            "type": "select",
+            "options": {
+                "linear": "linear",
+                "easeInQuad": "easeInQuad",
+                "easeOutQuad": "easeOutQuad",
+                "easeInOutQuad": "easeInOutQuad",
+                "easeInCubic": "easeInCubic",
+                "easeOutCubic": "easeOutCubic",
+                "easeInOutCubic": "easeInOutCubic",
+                "easeInQuart": "easeInQuart",
+                "easeOutQuart": "easeOutQuart",
+                "easeInOutQuart": "easeInOutQuart",
+                "easeInQuint": "easeInQuint",
+                "easeOutQuint": "easeOutQuint",
+                "easeInOutQuint": "easeInOutQuint",
+                "easeInSine": "easeInSine",
+                "easeOutSine": "easeOutSine",
+                "easeInOutSine": "easeInOutSine",
+                "easeInExpo": "easeInExpo",
+                "easeOutExpo": "easeOutExpo",
+                "easeInOutExpo": "easeInOutExpo",
+                "easeInCirc": "easeInCirc",
+                "easeOutCirc": "easeOutCirc",
+                "easeInOutCirc": "easeInOutCirc",
+                "easeInElastic": "easeInElastic",
+                "easeOutElastic": "easeOutElastic",
+                "easeInOutElastic": "easeInOutElastic",
+                "easeInBack": "easeInBack",
+                "easeOutBack": "easeOutBack",
+                "easeInOutBack": "easeInOutBack",
+                "easeInBounce": "easeInBounce",
+                "easeOutBounce": "easeOutBounce",
+                "easeInOutBounce": "easeInOutBounce"
+            }
+        },
+        "title_text": {
+            "label": "Title"
+        },
+        "title_fontFamily": {
+            "type": "font",
+            "label": "Font Family"
+        },
+        "title_fontSize": {
+            "label": "Font Size",
+            "type": "range",
+            "attrs": {
+                "min": 1,
+                "max": 50,
+                "step": 1
+            }
+        },
+        "title_fontColor": {
+            "type": "color",
+            "label": "Font Color"
+        },
+        "title_position": {
+            "label": "Position",
+            "type": "select",
+            "options": {
+                "Top": "top",
+                "Bottom": "bottom",
+                "Left": "left",
+                "Right": "right"
+            }
+        },
+        "labels_fontFamily": {
+            "type": "font",
+            "label": "Font Family"
+        },
+        "labels_xLabel": {
+            "label": "X Axes"
+        },
+        "labels_yLabel": {
+            "label": "Y Axes"
+        },
+        "labels_fontColor": {
+            "type": "color",
+            "label": "Label Font Color"
+        },
+        "labels_fontSize": {
+            "label": "Label Font Size",
+            "type": "range",
+            "attrs": {
+                "min": 1,
+                "max": 50,
+                "step": 1
+            }
+        },
+        "labels_lineHeight": {
+            "label": "Line Height"
+        },
+        "tooltips_displayColors": {
+            "label": "Show Colors",
+            "type": "checkbox",
+            "text": "Show color boxes",
+            "enable": "tooltips_enabled"
+        },
+        "tooltips_backgroundColor": {
+            "label": "Background Color",
+            "type": "color",
+            "enable": "tooltips_enabled"
+        },
+        "tooltips_borderWidth": {
+            "label": "Border Width",
+            "enable": "tooltips_enabled"
+        },
+        "tooltips_borderColor": {
+            "label": "Border Color",
+            "type": "color",
+            "enable": "tooltips_borderWidth"
+        },
+        "position": "${builder.position}",
+        "position_left": "${builder.position_left}",
+        "position_right": "${builder.position_right}",
+        "position_top": "${builder.position_top}",
+        "position_bottom": "${builder.position_bottom}",
+        "position_z_index": "${builder.position_z_index}",
+        "margin": "${builder.margin}",
+        "margin_remove_top": "${builder.margin_remove_top}",
+        "margin_remove_bottom": "${builder.margin_remove_bottom}",
+        "maxwidth": "${builder.maxwidth}",
+        "maxwidth_breakpoint": "${builder.maxwidth_breakpoint}",
+        "block_align": "${builder.block_align}",
+        "block_align_breakpoint": "${builder.block_align_breakpoint}",
+        "block_align_fallback": "${builder.block_align_fallback}",
+        "text_align": "${builder.text_align_justify}",
+        "text_align_breakpoint": "${builder.text_align_breakpoint}",
+        "text_align_fallback": "${builder.text_align_justify_fallback}",
+        "animation": "${builder.animation}",
+        "_parallax_button": "${builder._parallax_button}",
+        "visibility": "${builder.visibility}",
+        "name": "${builder.name}",
+        "status": "${builder.status}",
+        "id": "${builder.id}",
+        "class": "${builder.cls}",
+        "attributes": "${builder.attrs}",
+        "css": {
+            "label": "CSS",
+            "description": "Enter your own custom CSS. The following selectors will be prefixed automatically for this element: <code>.el-element</code>, <code>.el-item</code>, <code>.el-title</code>, <code>.el-meta</code>, <code>.el-content</code>, <code>.el-image</code>, <code>.el-link</code>",
+            "type": "editor",
+            "editor": "code",
+            "mode": "css",
+            "attrs": {
+                "debounce": 500
+            }
+        }
+    },
+    "fieldset": {
+        "default": {
+            "type": "tabs",
+            "fields": [
+                {
+                    "title": "Content",
+                    "fields": [
+                        "chart_type",
+                        "title_display",
+                        "legend_display",
+                        "tooltips_enabled",
+                        "data"
+                    ]
+                },
+                {
+                    "title": "Settings",
+                    "fields": [
+                        {
+                            "label": "Chart",
+                            "type": "group",
+                            "divider": true,
+                            "fields": [
+                                "chart_width",
+                                "chart_height",
+                                "chart_animationDuration",
+                                "chart_animationEasing",
+                                "chart_deferred",
+                                "chart_beginAtZero"
+                            ]
+                        },
+                        {
+                            "label": "Title",
+                            "type": "group",
+                            "divider": true,
+                            "fields": [
+                                "title_text",
+                                "title_position",
+                                "title_fontFamily",
+                                "title_fontSize",
+                                "title_fontColor"
+                            ]
+                        },
+                        {
+                            "label": "Legend",
+                            "type": "group",
+                            "divider": true,
+                            "fields": [
+                                "legend_position",
+                                "legend_align",
+                                "legend_reverse"
+                            ]
+                        },
+                        {
+                            "label": "Labels",
+                            "type": "group",
+                            "divider": true,
+                            "fields": [
+                                "labels_fontFamily",
+                                "labels_fontSize",
+                                "labels_fontColor",
+                                "labels_lineHeight",
+                                "labels_xLabel",
+                                "labels_yLabel"
+                            ]
+                        },
+                        {
+                            "label": "Tooltips",
+                            "type": "group",
+                            "divider": true,
+                            "fields": [
+                                "tooltips_displayColors",
+                                "tooltips_backgroundColor",
+                                "tooltips_borderWidth",
+                                "tooltips_borderColor"
+                            ]
+                        },
+                        {
+                            "label": "General",
+                            "type": "group",
+                            "fields": [
+                                "position",
+                                "position_left",
+                                "position_right",
+                                "position_top",
+                                "position_bottom",
+                                "position_z_index",
+                                "margin",
+                                "margin_remove_top",
+                                "margin_remove_bottom",
+                                "maxwidth",
+                                "maxwidth_breakpoint",
+                                "block_align",
+                                "block_align_breakpoint",
+                                "block_align_fallback",
+                                "text_align",
+                                "text_align_breakpoint",
+                                "text_align_fallback",
+                                "animation",
+                                "_parallax_button",
+                                "visibility"
+                            ]
+                        }
+                    ]
+                },
+                "${builder.advanced}"
+            ]
+        }
+    }
+}

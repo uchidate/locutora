@@ -1,0 +1,13 @@
+{
+    "name": "fa6",
+    "title": "Font Awesome 6",
+    "icon": "${url:~yooessentials_url/modules/icon/collections/fa6/icon.svg}",
+    "package": "http://static.zoolanders.com/icons/fa6_6.0.0.zip",
+    "groups": ["regular", "solid", "brands"],
+    "description": "Icons and social logos by Font Awesome, the web's most popular icon set.",
+    "version": "6.0.0",
+    "release": "February 2, 2022",
+    "license": "CC BY 4.0",
+    "url": "https://fontawesome.com",
+    "icons": 1748
+}

@@ -1,0 +1,13 @@
+<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5">
+  <ellipse cx="4.553" cy="24.48" rx=".719" ry=".754" fill="#444" stroke="#444" stroke-width="2.2" transform="matrix(.83483 0 0 .8 1.1290041 4.465126)"/>
+  <path fill="#444" d="M12.9676129 22.748886h16.006949v2.6h-16.006949z"/>
+  <path d="M27.371 7.148c0 1.906-1.588 3.489-3.646 3.489-1.906 0-3.648-1.583-3.648-3.489 0-1.901 1.588-3.647 3.648-3.647 1.902 0 3.646 1.589 3.646 3.647z" fill="none" stroke="#444" stroke-width="1.8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(.86372 0 0 .88357 -15.5612161 17.802899)"/>
+  <g>
+    <path fill="#444" d="M12.96761285 13.710194h16.006949v2.6h-16.006949z"/>
+    <path d="M27.371 7.148c0 1.906-1.588 3.489-3.646 3.489-1.906 0-3.648-1.583-3.648-3.489 0-1.901 1.588-3.647 3.648-3.647 1.902 0 3.646 1.589 3.646 3.647z" fill="none" stroke="#444" stroke-width="1.8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(.86372 0 0 .88357 -15.56121615 8.764207)"/>
+  </g>
+  <g>
+    <path fill="#444" d="M12.96761285 4.671507h16.006949v2.6h-16.006949z"/>
+    <path d="M27.371 7.148c0 1.906-1.588 3.489-3.646 3.489-1.906 0-3.648-1.583-3.648-3.489 0-1.901 1.588-3.647 3.648-3.647 1.902 0 3.646 1.589 3.646 3.647z" fill="none" stroke="#444" stroke-width="1.8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(.86372 0 0 .88357 -15.56121615 -.27448)"/>
+  </g>
+</svg>

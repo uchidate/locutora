@@ -1,0 +1,46 @@
+{
+    "@import": "./element.php",
+    "name": "yooessentials_form_hidden",
+    "title": "Hidden",
+    "group": "Form Essentials",
+    "icon": "${url:~yooessentials_url/modules/form/elements/form_hidden/images/icon.svg}",
+    "iconSmall": "${url:~yooessentials_url/modules/form/elements/form_hidden/images/iconSmall.svg}",
+    "width": 500,
+    "element": true,
+    "container": true,
+    "submittable": true,
+    "defaults": {
+        "control_id_inherit": true
+    },
+    "templates": {
+        "render": "./templates/template.php"
+    },
+    "fields": {
+        "control_value": {
+            "label": "Value",
+            "description": "The field value.",
+            "source": true
+        },
+        "control_name": "${yooessentials.form.fields.control_name}",
+        "control_id": "${yooessentials.form.fields.control_id}",
+        "control_id_inherit": "${yooessentials.form.fields.control_id_inherit}",
+        "source": "${builder.source}"
+    },
+    "fieldset": {
+        "default": {
+            "type": "tabs",
+            "fields": [
+                {
+                    "title": "Field",
+                    "fields": [
+                        "control_name",
+                        "control_id_inherit",
+                        "control_id",
+                        "control_value"
+                    ]
+                },
+                "${builder.advancedItem}"
+            ]
+        }
+    }
+}

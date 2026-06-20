@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="system" method="upgrade">
+	<name>System - RSForm! Pro Advanced Form Fields</name>
+	<author>RSJoomla!</author>
+	<creationDate>January 2019</creationDate>
+	<copyright>(C) 2019-2020 www.rsjoomla.com</copyright>
+	<license>GNU General Public License</license>
+	<authorEmail>support@rsjoomla.com</authorEmail>
+	<authorUrl>www.rsjoomla.com</authorUrl>
+	<version>3.0.0</version>
+	<description><![CDATA[PLG_SYSTEM_RSFPADVANCEFORMFIELDS_DESC]]></description>
+	<scriptfile>script.php</scriptfile>
+	
+	<updateservers>
+        <server type="extension" priority="1" name="RSForm! Pro - Advanced Form Fields">https://www.rsjoomla.com/updates/plg_rsform_plugins/plg_rsfpadvancedformfields/plg_rsfpadvancedformfields.xml</server>
+    </updateservers>
+	
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/mysql/install.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/mysql/uninstall.sql</file>
+		</sql>
+	</uninstall>
+
+	<files>
+		<folder>sql</folder>
+		<filename plugin="rsfpadvancedformfields">rsfpadvancedformfields.php</filename>
+		<filename>index.html</filename>
+	</files>
+
+	<media destination="plg_system_rsfpadvancedformfields" folder="media">
+		<folder>css</folder>
+		<folder>js</folder>
+	</media>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_system_rsfpadvancedformfields.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_rsfpadvancedformfields.sys.ini</language>
+	</languages>
+</extension>

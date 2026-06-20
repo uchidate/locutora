@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="params">
+		<field name="mailer.type" type="list" label="PLG_SYSTEM_RSFPMAILER_OPTIONS">
+			<option value="default">PLG_SYSTEM_RSFPMAILER_JOOMLA_DEFAULT</option>
+			<option value="phpmail">PLG_SYSTEM_RSFPMAILER_PHPMAIL</option>
+			<option value="sendmail">PLG_SYSTEM_RSFPMAILER_SENDMAIL</option>
+			<option value="smtp">PLG_SYSTEM_RSFPMAILER_SMTP</option>
+		</field>
+		<!-- Sendmail -->
+		<field name="mailer.sendmailpath" type="text" label="PLG_SYSTEM_RSFPMAILER_SENDMAILPATH" size="100" showon="mailer.type:sendmail" />
+		<!-- SMTP -->
+		<field name="mailer.smtpauth" type="radio" class="btn-group btn-group-yesno" label="PLG_SYSTEM_RSFPMAILER_SMTPAUTH" showon="mailer.type:smtp">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field name="mailer.smtpsecurity" type="list" label="PLG_SYSTEM_RSFPMAILER_SECURITY" showon="mailer.type:smtp">
+			<option value="">JNO</option>
+			<option value="ssl">SSL</option>
+			<option value="tls">TLS</option>
+		</field>
+		<field name="mailer.smtpport" type="text" label="PLG_SYSTEM_RSFPMAILER_SMTPPORT" size="100" showon="mailer.type:smtp" />
+		<field name="mailer.smtpusername" type="text" label="PLG_SYSTEM_RSFPMAILER_SMTPUSERNAME" size="100" showon="mailer.type:smtp[AND]mailer.smtpauth:1" />
+		<field name="mailer.smtppassword" type="password" label="PLG_SYSTEM_RSFPMAILER_SMTPPASSWORD" size="100" showon="mailer.type:smtp[AND]mailer.smtpauth:1" />
+		<field name="mailer.smtphost" type="text" label="PLG_SYSTEM_RSFPMAILER_SMTPHOST" size="100" showon="mailer.type:smtp" />
+		<!-- DKIM -->
+		<field name="mailer.enabledkim" type="radio" class="btn-group btn-group-yesno" label="PLG_SYSTEM_RSFPMAILER_ENABLEDKIM">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field name="mailer.dkimdomain" type="text" label="PLG_SYSTEM_RSFPMAILER_DKIMDOMAIN" size="100" showon="mailer.enabledkim:1" onchange="updateDKIMinfo();" />
+		<field name="mailer.dkimselector" type="text" label="PLG_SYSTEM_RSFPMAILER_DKIMSELECTOR" size="100" showon="mailer.enabledkim:1" onchange="updateDKIMinfo();" />
+		<field name="mailer.dkimpassphrase" type="text" label="PLG_SYSTEM_RSFPMAILER_DKIMPASSPHRASE" size="100" showon="mailer.enabledkim:1" />
+		<field name="mailer.dkimidentity" type="text" label="PLG_SYSTEM_RSFPMAILER_DKIMIDENTITY" size="100" showon="mailer.enabledkim:1" />
+		<field name="mailer.dkimprivatekey" type="textarea" class="input-xxlarge" rows="15" label="PLG_SYSTEM_RSFPMAILER_DKIMPRIVATEKEY" showon="mailer.enabledkim:1" />
+		<field name="mailer.dkimpublickey" type="textarea" class="input-xxlarge" rows="5" label="PLG_SYSTEM_RSFPMAILER_DKIMPUBLICKEY" showon="mailer.enabledkim:1" onchange="updateDKIMinfo();" />
+		<field name="mailer.mailerdkiminfo" type="mailerdkiminfo" label="" showon="mailer.enabledkim:1" />
+		<!-- Custom headers -->
+		<field name="mailer.enableheaders" type="radio" class="btn-group btn-group-yesno" label="PLG_SYSTEM_RSFPMAILER_ENABLE_HEADERS">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field name="mailer.emailheaders" type="mailerheaders" label="" showon="mailer.enableheaders:1" />
+	</fieldset>
+</form>

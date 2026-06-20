@@ -1,0 +1,38 @@
+<?php // $file = /home/storage/f/68/ac/locutora1/public_html/plugins/system/yooessentials/modules/source-sources/src/YouTube/config-channel.json
+
+return [
+  'name' => 'youtube_channel', 
+  'title' => 'YouTube Channel', 
+  'description' => 'All videos (Private & Unlisted) from your channel via oAuth.', 
+  'group' => 'Social Media', 
+  'collection' => 'YouTube', 
+  'docs' => 'https://www.zoolanders.com/docs/essentials-for-yootheme-pro/sources/youtube', 
+  'icon' => $filter->apply('url', '~yooessentials_url/modules/source-sources/src/YouTube/icon.svg', $file), 
+  'endpoints' => [
+    'presave' => 'yooessentials/source/youtube'
+  ], 
+  'fields' => [
+    'name' => [
+      'label' => 'Name', 
+      'description' => 'A name to identify this source.', 
+      'attrs' => [
+        'autofocus' => true
+      ]
+    ], 
+    'account' => [
+      'label' => 'Account', 
+      'type' => 'yooessentials-connected-auth', 
+      'connections' => [
+        'google' => ['https://www.googleapis.com/auth/youtube.readonly']
+      ], 
+      'description' => 'The Google account associated with the channel.'
+    ], 
+    'channel_id' => [
+      'label' => 'Channel', 
+      'type' => 'yooessentials-select-dropdown-async', 
+      'description' => 'The Channel from which to retrieve the media.', 
+      'endpoint' => 'yooessentials/source/youtube/channels', 
+      'watch' => 'account'
+    ]
+  ]
+];

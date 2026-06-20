@@ -1,0 +1,41 @@
+{
+    "name": "message",
+    "title": "Display Message",
+    "description": "Display a message in a modal.",
+    "icon": "${url:~yooessentials_url/modules/form-actions/src/Message/icon.svg}",
+    "docs": "https://www.zoolanders.com/docs/essentials-for-yootheme-pro/forms/action/message",
+    "fields": {
+        "content": {
+            "type": "editor",
+            "mode": "text/html",
+            "label": "Message",
+            "description": "The content to display in the modal.",
+            "source": true,
+            "formPlaceholder": true
+        },
+        "name": "${yooessentials.form.fields.action_name}",
+        "status": "${yooessentials.form.fields.action_status}",
+        "conditions": "${yooessentials.form.fields.action_conditions}"
+    },
+    "fieldset": {
+        "default": {
+            "type": "tabs",
+            "fields": [
+                {
+                    "title": "Action",
+                    "fields": [
+                        "content"
+                    ]
+                },
+                {
+                    "title": "Advanced",
+                    "fields": [
+                        "name",
+                        "status",
+                        "conditions"
+                    ]
+                }
+            ]
+        }
+    }
+}

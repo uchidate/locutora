@@ -1,0 +1,32 @@
+.picker .picker__header > select.picker__select--month,
+.picker .picker__header > select.picker__select--year {
+  height: auto;
+  color:inherit;
+  border-color: inherit;
+  box-shadow:none;
+}
+.picker__weekday {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Some ovverides for the responsive layout */
+.formRow .picker.picker--opened .picker__select--month {
+  width: 35% !important;
+}
+.formRow .picker.picker--opened .picker__select--year {
+  width: 22.5% !important;
+}
+
+.formRow .picker.picker--opened .picker__button--today,
+.formRow .picker.picker--opened .picker__button--clear,
+.formRow .picker.picker--opened .picker__button--close {
+  width: 33%;
+  border: 1px solid #fff;
+  font-size: .8em;
+  padding: .66em 0;
+  vertical-align: bottom;
+  background-color: #fff;
+  background-image: none;
+}

@@ -1,0 +1,54 @@
+<?php // $file = /home/storage/f/68/ac/locutora1/public_html/plugins/system/yooessentials/modules/access/config/access-rule-panel.json
+
+return [
+  'title' => '', 
+  'group' => '', 
+  'icon' => '', 
+  'description' => '', 
+  'fields' => [
+    'name' => [
+      'label' => 'Name', 
+      'description' => 'A name to identify this condition.', 
+      'source' => true
+    ], 
+    'status' => [
+      'type' => 'checkbox', 
+      'label' => 'Status', 
+      'text' => 'Disable condition', 
+      'description' => 'Disable the condition and publish it later.', 
+      'source' => true, 
+      'attrs' => [
+        'true-value' => 'disabled', 
+        'false-value' => ''
+      ]
+    ], 
+    '_condition' => [
+      'type' => 'fields', 
+      'fields' => []
+    ], 
+    'reversed' => [
+      'type' => 'checkbox', 
+      'label' => 'Reversed', 
+      'source' => true, 
+      'text' => 'Reverse evaluation', 
+      'description' => 'Evaluate as an excluding condition, a.k.a. <code>IS NOT</code>.'
+    ], 
+    '_about' => [
+      'label' => 'About', 
+      'type' => 'yooessentials-info', 
+      'content' => ''
+    ]
+  ], 
+  'fieldset' => [
+    'default' => [
+      'type' => 'tabs', 
+      'fields' => [[
+          'title' => 'Condition', 
+          'fields' => ['_condition', 'reversed', '_about']
+        ], [
+          'title' => 'Advanced', 
+          'fields' => ['name', 'status']
+        ]]
+    ]
+  ]
+];

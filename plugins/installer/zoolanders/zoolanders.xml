@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.8.0" type="plugin" group="installer" method="upgrade">
+    <name>PLG_INSTALLER_ZOOLANDERS</name>
+    <author>ZOOlanders</author>
+    <authorEmail>info@zoolanders.com</authorEmail>
+    <authorUrl>https://www.zoolanders.com</authorUrl>
+    <copyright>Copyright (c)2020 JOOlanders SL</copyright>
+    <license>GNU General Public License version 3, or later</license>
+    <creationDate>June 2020</creationDate>
+    <version>1.0.0</version>
+    <description>PLG_INSTALLER_ZOOLANDERS_XML_DESCRIPTION</description>
+    <files>
+        <filename plugin="zoolanders">zoolanders.php</filename>>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="download_id" type="password" label="PLG_INSTALLER_ZOOLANDERS_DOWNLOAD_ID_LBL" description="PLG_INSTALLER_ZOOLANDERS_DOWNLOAD_ID_DESC" />
+            </fieldset>
+        </fields>
+    </config>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_installer_zoolanders.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_installer_zoolanders.sys.ini</language>
+    </languages>
+    <scriptfile>install.php</scriptfile>
+    <updateservers>
+        <server type="extension" priority="1" name="PLG_INSTALLER_ZOOLANDERS">http://static.zoolanders.com/updates/plg_installer_zoolanders.xml</server>
+    </updateservers>
+</extension>

@@ -1,0 +1,66 @@
+<?php // $file = /home/storage/f/68/ac/locutora1/public_html/plugins/system/yooessentials/modules/source-sources/src/GoogleSheet/config.json
+
+return [
+  'name' => 'google_sheet', 
+  'title' => 'Google Sheet', 
+  'description' => 'Source based on a Google Drive Spreadsheet.', 
+  'group' => 'Structured Data', 
+  'docs' => 'https://www.zoolanders.com/docs/essentials-for-yootheme-pro/sources/google-sheet', 
+  'icon' => $filter->apply('url', '~yooessentials_url/modules/source-sources/src/GoogleSheet/icon.svg', $file), 
+  'endpoints' => [
+    'presave' => 'yooessentials/source/google-sheet'
+  ], 
+  'fields' => [
+    'name' => [
+      'label' => 'Name', 
+      'description' => 'A name to identify this source.', 
+      'attrs' => [
+        'autofocus' => true
+      ]
+    ], 
+    'account' => [
+      'label' => 'Account', 
+      'type' => 'yooessentials-connected-auth', 
+      'connections' => [
+        'google' => ['https://www.googleapis.com/auth/drive.readonly', 'https://www.googleapis.com/auth/spreadsheets.readonly']
+      ], 
+      'description' => 'The Google account with which to access the resources.'
+    ], 
+    'sheet_id' => [
+      'label' => 'Spreadsheet', 
+      'type' => 'yooessentials-select-dropdown-async', 
+      'description' => 'The Spreadsheet ID which to use to create the source.', 
+      'watch' => 'account', 
+      'endpoint' => 'yooessentials/source/google-sheet/spreadsheets'
+    ], 
+    'sheet_name' => [
+      'label' => 'Sheet Name', 
+      'description' => 'The Spreadsheet Sheet Name, defaults to the first sheet if omited.', 
+      'type' => 'yooessentials-select-dropdown-async', 
+      'endpoint' => 'yooessentials/source/google-sheet/sheets', 
+      'watch' => 'sheet_id', 
+      'placeholder' => 'Default'
+    ], 
+    '_columns' => [
+      'description' => 'The Spreadsheet range columns from which to retrieve the data.', 
+      'type' => 'grid', 
+      'width' => '1-2', 
+      'fields' => [
+        'start_column' => [
+          'label' => 'Start Column', 
+          'type' => 'text', 
+          'attrs' => [
+            'placeholder' => 'A'
+          ]
+        ], 
+        'end_column' => [
+          'label' => 'End Column', 
+          'type' => 'text', 
+          'attrs' => [
+            'placeholder' => 'Z'
+          ]
+        ]
+      ]
+    ]
+  ]
+];

@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <rect id="a" x="4" y="86" width="32" height="32"/>
+        <mask id="b" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="32" height="32" fill="#fff">
+            <use xlink:href="#a"/>
+        </mask>
+    </defs>
+    <g transform="translate(-4 -86)" fill="none" fill-rule="evenodd">
+        <use stroke="#222" mask="url(#b)" stroke-width="4" xlink:href="#a"/>
+        <polygon fill="#222" points="17.16 96.864 17.16 101.472 24.6 101.472 24.6 104.088 17.16 104.088 17.16 111 14.328 111 14.328 94.224 25.512 94.224 25.488 96.864"/>
+    </g>
+</svg>

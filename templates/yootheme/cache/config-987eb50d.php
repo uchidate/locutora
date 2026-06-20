@@ -1,0 +1,95 @@
+<?php // $file = /home/storage/f/68/ac/locutora1/public_html/plugins/system/yooessentials/modules/storage-adapters/src/FTP/config.json
+
+return [
+  'name' => 'ftp', 
+  'title' => 'S/FTP', 
+  'description' => 'Create a storage from a remote server using a S/FTP protocol.', 
+  'icon' => $filter->apply('url', '~yooessentials_url/modules/storage-adapters/src/FTP/icon.svg', $file), 
+  'endpoints' => [
+    'presave' => 'yooessentials/storage/adapter/presave'
+  ], 
+  'fields' => [
+    'name' => [
+      'label' => 'Name', 
+      'description' => 'A name to identify this storage.', 
+      'attrs' => [
+        'autofocus' => true
+      ]
+    ], 
+    '_host' => [
+      'type' => 'grid', 
+      'width' => '1-2', 
+      'fields' => [
+        'host' => [
+          'label' => 'Host', 
+          'type' => 'text'
+        ], 
+        'port' => [
+          'label' => 'Port', 
+          'type' => 'text', 
+          'attrs' => [
+            'placeholder' => '21'
+          ]
+        ]
+      ]
+    ], 
+    '_creds' => [
+      'description' => 'The Host, Port and credentials for establishing the connection.', 
+      'type' => 'grid', 
+      'width' => '1-2', 
+      'fields' => [
+        'username' => [
+          'label' => 'Username', 
+          'type' => 'text'
+        ], 
+        'password' => [
+          'label' => 'Password', 
+          'type' => 'yooessentials-password', 
+          'encrypt' => true
+        ]
+      ]
+    ], 
+    'root' => [
+      'label' => 'Root', 
+      'type' => 'text', 
+      'attrs' => [
+        'placeholder' => '/'
+      ], 
+      'description' => 'The remote path that will be used as the storage root.'
+    ], 
+    'writable' => [
+      'label' => 'Write Permission', 
+      'text' => 'Grant write permissions for this storage.', 
+      'type' => 'checkbox'
+    ], 
+    '_advanced' => [
+      'label' => 'Advanced', 
+      'type' => 'group', 
+      'fields' => [
+        'passive' => [
+          'text' => 'Passive', 
+          'type' => 'checkbox', 
+          'default' => true, 
+          'label' => 'Enable Passive Mode'
+        ], 
+        'ssl' => [
+          'text' => 'SSL', 
+          'type' => 'checkbox', 
+          'default' => false, 
+          'label' => 'Use SSL'
+        ], 
+        'utf8' => [
+          'text' => 'UTF8', 
+          'type' => 'checkbox', 
+          'default' => false, 
+          'label' => 'UTF8 Filesystem'
+        ], 
+        'ignore_passive_address' => [
+          'text' => 'Ignore Passive Address', 
+          'type' => 'checkbox', 
+          'label' => 'Ignore Passive Address'
+        ]
+      ]
+    ]
+  ]
+];

@@ -1,0 +1,200 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>{$pagetitle}</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link REL="stylesheet" href="styles/default.css" type="text/css">
+		{BEGIN rtlCSS}
+		<link REL="stylesheet" href="styles/defaultRTL.css" type="text/css">
+		{END rtlCSS}
+		{BEGIN styleCSSFiles}
+		<link REL="stylesheet" href="{$stylepath}" type="text/css">
+		{END styleCSSFiles}
+		{BEGIN pageCSSFiles}
+		<link REL="stylesheet" href="{$pagestylepath}" type="text/css">
+		{END pageCSSFiles}
+	</head>
+	
+	<body class="{$stylename} function-print" {$bodyattrs}>
+	{BEGIN body}
+		{$header}
+	<div class="rnr-page">
+		<div class="rnr-top {$blockclass_top}">
+			
+
+{BEGIN container_pdf}
+<div class="rnr-c rnr-ch rnr-c-pdf">
+
+{BEGIN printbuttons}
+<div  class="style1 rnr-bl rnr-b-printbuttons {$brickclass_printbuttons}">{BEGIN divideintopages_block}
+<a href="#" class="divideintopages rnr-button button" {$divideintopages_attrs}>Prepare for printing</a>
+{END divideintopages_block}
+</div>
+{END printbuttons}
+
+<div class="rnr-hfiller"></div>
+</div>
+{END container_pdf}
+
+
+
+
+		</div>
+		<div class="rnr-middle">
+			<div class="rnr-left {$blockclass_left}">
+				
+			</div>
+			<div class="rnr-center {$blockclass_center}">
+				
+
+{BEGIN container_pageheader}
+<div class="rnr-c rnr-cv rnr-c-pageheader">
+
+
+<div  class="rnr-brickcontents style1 rnr-b-printheader {$brickclass_printheader}">	<h1>{$pagetitlelabel paginas print}</h1>
+</div>
+
+
+{BEGIN page_number}
+<div  class="rnr-brickcontents style1 rnr-b-page_of_print {$brickclass_page_of_print}"><h1>Página <span class="rp-pageno">{$pageno}</span> de <span class="rp-pagecount">{$pagecount}</span></h1></div>{END page_number}
+
+
+</div>
+{END container_pageheader}
+
+
+
+{BEGIN container_grid}
+
+
+{BEGIN grid_block}
+	<table class="rnr-c rnr-c-grid rnr-b-grid rnr-gridtable rp-maintable" cellpadding="0">
+	<thead>
+	{BEGIN grid_header}
+<tr class="rnr-toprow style1 {$gridHeader_class}" >
+{BEGIN record_header}
+		{BEGIN idpage_fieldheadercolumn}
+<th class="runner-cc {$idpage_class}" {$idpage_style}>
+	{BEGIN idpage_fieldheader}
+	<b>{$label paginas idpage}</b>
+	{END idpage_fieldheader}
+</th>
+{END idpage_fieldheadercolumn}
+	{BEGIN titulopage_fieldheadercolumn}
+<th class="runner-cc {$titulopage_class}" {$titulopage_style}>
+	{BEGIN titulopage_fieldheader}
+	<b>{$label paginas titulopage}</b>
+	{END titulopage_fieldheader}
+</th>
+{END titulopage_fieldheadercolumn}
+	{BEGIN subtitulo_fieldheadercolumn}
+<th class="runner-cc {$subtitulo_class}" {$subtitulo_style}>
+	{BEGIN subtitulo_fieldheader}
+	<b>{$label paginas subtitulo}</b>
+	{END subtitulo_fieldheader}
+</th>
+{END subtitulo_fieldheadercolumn}
+	{BEGIN datapage_fieldheadercolumn}
+<th class="runner-cc {$datapage_class}" {$datapage_style}>
+	{BEGIN datapage_fieldheader}
+	<b>{$label paginas datapage}</b>
+	{END datapage_fieldheader}
+</th>
+{END datapage_fieldheadercolumn}
+	{BEGIN conteudo_fieldheadercolumn}
+<th class="runner-cc {$conteudo_class}" {$conteudo_style}>
+	{BEGIN conteudo_fieldheader}
+	<b>{$label paginas conteudo}</b>
+	{END conteudo_fieldheader}
+</th>
+{END conteudo_fieldheadercolumn}
+	{BEGIN publicado_fieldheadercolumn}
+<th class="runner-cc {$publicado_class}" {$publicado_style}>
+	{BEGIN publicado_fieldheader}
+	<b>{$label paginas publicado}</b>
+	{END publicado_fieldheader}
+</th>
+{END publicado_fieldheadercolumn}
+		
+	<th class="rnr-edge">&nbsp;</th>
+	{BEGIN endrecordheader_block}
+	<th class="rnr-cs">&nbsp;</th>
+	{END endrecordheader_block}
+	{END record_header}
+</tr>
+{END grid_header}
+
+	</thead>
+	<tbody>	
+	{BEGIN grid_row}
+	<tr class="rnr-row style1 {$rowclass}" {$rowattrs} {$rowstyle}>
+		{BEGIN grid_record}
+				{BEGIN idpage_fieldcolumn}
+<td  class="runner-cc {$idpage_class}" {$idpage_style} {$recordattrs}>
+	{$idpage_value}
+</td>
+{END idpage_fieldcolumn}
+	{BEGIN titulopage_fieldcolumn}
+<td  class="runner-cc {$titulopage_class}" {$titulopage_style} {$recordattrs}>
+	{$titulopage_value}
+</td>
+{END titulopage_fieldcolumn}
+	{BEGIN subtitulo_fieldcolumn}
+<td  class="runner-cc {$subtitulo_class}" {$subtitulo_style} {$recordattrs}>
+	{$subtitulo_value}
+</td>
+{END subtitulo_fieldcolumn}
+	{BEGIN datapage_fieldcolumn}
+<td  class="runner-cc {$datapage_class}" {$datapage_style} {$recordattrs}>
+	{$datapage_value}
+</td>
+{END datapage_fieldcolumn}
+	{BEGIN conteudo_fieldcolumn}
+<td  class="runner-cc {$conteudo_class}" {$conteudo_style} {$recordattrs}>
+	{$conteudo_value}
+</td>
+{END conteudo_fieldcolumn}
+	{BEGIN publicado_fieldcolumn}
+<td  class="runner-cc {$publicado_class}" {$publicado_style} {$recordattrs}>
+	{$publicado_value}
+</td>
+{END publicado_fieldcolumn}
+
+		<td class="rnr-edge" {$recordattrs}>&nbsp;</td>
+		{BEGIN endrecord_block}
+		<td class="rnr-cs" {$endrecordblock_attrs}>&nbsp;</td>
+		{END endrecord_block}
+										
+		{END grid_record}
+
+	</tr>
+{END grid_row}
+
+
+	
+	</tbody>
+</table>
+
+{END grid_block}
+
+
+
+{END container_grid}
+
+
+			</div>
+			<div class="rnr-right {$blockclass_right}">
+				
+			</div>
+		</div>
+		<div class="rnr-bottom {$blockclass_bottom}">
+			<!--%%bottom%%-->
+		</div>
+	</div>
+		
+		{$footer}
+	{END body}
+	</body>
+</html>

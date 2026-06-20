@@ -1,0 +1,21 @@
+DELETE FROM `#__rsform_component_types` WHERE ComponentTypeId = 600;
+DELETE FROM `#__rsform_component_types` WHERE ComponentTypeId = 602;
+DELETE FROM `#__rsform_component_types` WHERE ComponentTypeId = 603;
+DELETE FROM `#__rsform_component_types` WHERE ComponentTypeId = 604;
+DELETE FROM `#__rsform_component_types` WHERE ComponentTypeId = 605;
+DELETE FROM `#__rsform_component_types` WHERE ComponentTypeId = 606;
+DELETE FROM `#__rsform_component_types` WHERE ComponentTypeId = 607;
+DELETE FROM `#__rsform_component_types` WHERE ComponentTypeId = 608;
+DELETE FROM `#__rsform_component_types` WHERE ComponentTypeId = 609;
+DELETE FROM `#__rsform_component_types` WHERE ComponentTypeId = 610;
+
+DELETE FROM `#__rsform_component_type_fields` WHERE ComponentTypeId = 600;
+DELETE FROM `#__rsform_component_type_fields` WHERE ComponentTypeId = 602;
+DELETE FROM `#__rsform_component_type_fields` WHERE ComponentTypeId = 603;
+DELETE FROM `#__rsform_component_type_fields` WHERE ComponentTypeId = 604;
+DELETE FROM `#__rsform_component_type_fields` WHERE ComponentTypeId = 605;
+DELETE FROM `#__rsform_component_type_fields` WHERE ComponentTypeId = 606;
+DELETE FROM `#__rsform_component_type_fields` WHERE ComponentTypeId = 607;
+DELETE FROM `#__rsform_component_type_fields` WHERE ComponentTypeId = 608;
+DELETE FROM `#__rsform_component_type_fields` WHERE ComponentTypeId = 609;
+DELETE FROM `#__rsform_component_type_fields` WHERE ComponentTypeId = 610;
