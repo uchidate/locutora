@@ -34,8 +34,16 @@ class MenusListener
             return;
         }
 
-        // create menu modules when assigned in theme settings
-        foreach ($config('~theme.menu.positions', []) as $position => $menu) {
+        // Create menu modules when assigned in theme settings.
+        // Keep the desktop navigation in sync with the mobile menu when an
+        // explicit navbar menu has not been selected in the theme settings.
+        $positions = $config('~theme.menu.positions', []);
+
+        if (empty($positions['navbar']) && !empty($positions['mobile'])) {
+            $positions['navbar'] = $positions['mobile'];
+        }
+
+        foreach ($positions as $position => $menu) {
             if (!$menu) {
                 continue;
             }
@@ -52,6 +60,31 @@ class MenusListener
                     'params' => json_encode(['menutype' => $menu, 'showAllChildren' => true]),
                 ]
             );
+        }
+
+        $hasNavbarMenu = false;
+        $mobileMenu = null;
+
+        foreach ($modules as $module) {
+            if ($module->module !== 'mod_menu') {
+                continue;
+            }
+
+            if ($module->position === 'navbar') {
+                $hasNavbarMenu = true;
+                break;
+            }
+
+            if ($module->position === 'mobile' && !$mobileMenu) {
+                $mobileMenu = $module;
+            }
+        }
+
+        if (!$hasNavbarMenu && $mobileMenu) {
+            $navbarMenu = clone $mobileMenu;
+            $navbarMenu->id = "{$mobileMenu->id}-navbar";
+            $navbarMenu->position = 'navbar';
+            array_unshift($modules, $navbarMenu);
         }
 
         $event->setArgument(0, $modules);
