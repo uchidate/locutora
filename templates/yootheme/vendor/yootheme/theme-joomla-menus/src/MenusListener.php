@@ -81,10 +81,18 @@ class MenusListener
         }
 
         if (!$hasNavbarMenu && $mobileMenu) {
-            $navbarMenu = clone $mobileMenu;
-            $navbarMenu->id = "{$mobileMenu->id}-navbar";
-            $navbarMenu->position = 'navbar';
-            array_unshift($modules, $navbarMenu);
+            array_unshift(
+                $modules,
+                (object) [
+                    'id' => 'menu-navbar',
+                    'name' => 'menu',
+                    'module' => 'mod_menu',
+                    'title' => '',
+                    'showtitle' => 0,
+                    'position' => 'navbar',
+                    'params' => $mobileMenu->params,
+                ]
+            );
         }
 
         $event->setArgument(0, $modules);
