@@ -34,16 +34,12 @@ class MenusListener
             return;
         }
 
-        // Create menu modules when assigned in theme settings.
-        // Keep the desktop navigation in sync with the mobile menu when an
-        // explicit navbar menu has not been selected in the theme settings.
-        $positions = $config('~theme.menu.positions', []);
+        // Create menu modules when assigned in theme settings. Newer YOOtheme
+        // versions store the menu name inside each position's settings array,
+        // while this restored template expects the menu name directly.
+        foreach ($config('~theme.menu.positions', []) as $position => $settings) {
+            $menu = is_array($settings) ? ($settings['menu'] ?? null) : $settings;
 
-        if (empty($positions['navbar']) && !empty($positions['mobile'])) {
-            $positions['navbar'] = $positions['mobile'];
-        }
-
-        foreach ($positions as $position => $menu) {
             if (!$menu) {
                 continue;
             }
@@ -58,39 +54,6 @@ class MenusListener
                     'showtitle' => 0,
                     'position' => $position,
                     'params' => json_encode(['menutype' => $menu, 'showAllChildren' => true]),
-                ]
-            );
-        }
-
-        $hasNavbarMenu = false;
-        $mobileMenu = null;
-
-        foreach ($modules as $module) {
-            if ($module->module !== 'mod_menu') {
-                continue;
-            }
-
-            if ($module->position === 'navbar') {
-                $hasNavbarMenu = true;
-                break;
-            }
-
-            if ($module->position === 'mobile' && !$mobileMenu) {
-                $mobileMenu = $module;
-            }
-        }
-
-        if (!$hasNavbarMenu && $mobileMenu) {
-            array_unshift(
-                $modules,
-                (object) [
-                    'id' => 'menu-navbar',
-                    'name' => 'menu',
-                    'module' => 'mod_menu',
-                    'title' => '',
-                    'showtitle' => 0,
-                    'position' => 'navbar',
-                    'params' => $mobileMenu->params,
                 ]
             );
         }

@@ -1,5 +1,6 @@
 # Production credentials and environment-specific configuration
 /configuration.php
+/.deploy/
 
 # Restored database dumps (may contain users, form submissions, and secrets)
 /installation/sql/site.sql
